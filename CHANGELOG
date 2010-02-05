@@ -1,0 +1,34 @@
+Version 0.9.12
+ - Included missing test files testCallbacks.h and README.txt in distribution
+
+Version 0.9.11
+ - Changed the channel name from a wchar_t* to a char*
+
+Version 0.9.10
+ - Fixed a number of bugs in the handling of throttling and in logout,
+    these deal with the root causes of issue 13.
+ - Changed the data structure used in the login for connection.c to
+    use h_addr_list[] rather than the deprecated hostent; this fixes
+    the root cause of issue 12.
+ - Added the chat client example; this partially addresses issue 14
+ - Added a smoke test client, which can be run against a server to test
+   all of the protocol messages that flow between the client and the server
+ - Added functions sgs_connection_get_context() and sgs_connection_get_session()
+   which remove the requirement that the client keep shadow copies of the
+   context and session objects in order to access those objects
+ - Added function sgs_ctx_create_empty(), which creates a context with no
+   callbacks filled in. This removes the special nature of reg_fd_cb and
+   unreg_fd_cb.
+
+Version 0.9.9
+- Bug fix in session.c; repairs a problem with names and fixes a memory leak
+
+Version 0.9.8.1:
+- Fixed issue 8; error in parsing channel join messages
+- deleted hex_utils.c and hex_utils.h; these are not used
+- Eliminated duplicate include statements
+- Functionally equivalent to 0.9.8 and 0.9.7
+
+Version 0.9.8:
+- Removed reference to chatclient in Make file
+- Functionally equivalent to 0.9.7

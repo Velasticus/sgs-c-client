@@ -1,0 +1,73 @@
+Project Darkstar Example C Client
+Version 0.9.11
+
+INTRODUCTION
+
+This directory contains example code for developing clients in the C
+programming language that can communicate with the Project Darkstar
+Server.
+
+
+CONTENTS
+
+- sgs
+  Source code for the example C client implementation
+
+- test
+  Source code for tests
+
+- example
+    Source code for an example program using the C client
+
+BUILDING
+
+Unix:
+
+- Ensure that the files etc/sgs.mk and etc/$(UNAME).mk
+  contain appropriate settings for your platform.
+
+- Invoke GNU make at the top level:
+    % make
+  or
+    % gmake
+
+- To build the tests:
+    % cd test
+    % make
+
+Windows:
+
+- Ensure that the appropriate compiler tools are available in
+  your %Path%.  See env.bat for an example.
+
+- Ensure that the files nmake.mak and etc/nmake.mk contain
+  appropriate settings for your platform.  In particular,
+  you may need to adjust the paths to the compiler includes and
+  libraries in etc/nmake.mk.
+
+- At the top level, invoke nmake.exe:
+    > nmake.exe /F nmake.mak
+
+- To build the tests:
+    % cd test
+    % nmake.exe /F nmake.mak
+
+
+RUNNING TESTS
+
+- After building the tests (see above), the resulting test
+  executables can be run manually.  For example, on Unix:
+
+    % cd test
+    % ./buffer_test
+    % ./id_test
+    % ./map_test
+    % ./message_test
+
+
+KNOWN ISSUES
+
+This example has the following limitations:
+
+- The Windows implementation is incomplete; the networking code
+  needs to be ported to the Winsock2 API.
